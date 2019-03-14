@@ -1,0 +1,27 @@
+from time import sleep
+
+print('\033[7;30mBem vindo!\033[m')
+materia = str(input('Me informe a materia: '))
+n1 = float(input('A primeira nota de {}: '.format(materia)))
+n2 = float(input('Agora a segunda nota de {}: '.format(materia)))
+media = (n1+n2)/2
+
+cor = {'limpa': '\033[m',
+       'vermelha' : '\033[7;31m',
+       'amarela' : '\033[7;33m',
+       'verde' : '\033[7;32m'}
+
+print('CALCULANDO...')
+sleep(2)
+
+if media < 5.0:
+    print('{}Sua média foi {}{}'.format(cor ['vermelha'], media, cor ['limpa']))
+    print('\033[7;31m===REPROVADO===\033[m')
+
+elif media >= 5.0 and media <= 6.9:
+    print('{}Sua média foi {}{}'.format(cor ['amarela'], media, cor ['limpa']))
+    print('\033[7;33m===RECUPERAÇÃO===\033[m')
+
+else:
+    print('{}Sua Média foi {}{}'.format(cor ['verde'], media, cor ['limpa']))
+    print('\033[7;32m===APROVADO===\033[m')
